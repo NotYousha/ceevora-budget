@@ -1,0 +1,22 @@
+# /etc/systemd/system/ceevora-budget.service  (UNVERIFIED template)
+[Unit]
+Description=Ceevora Budget API
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+User=ceevora
+Group=ceevora
+WorkingDirectory=/opt/ceevora-budget/backend
+EnvironmentFile=/etc/ceevora-budget/env
+ExecStart=/opt/ceevora-budget/backend/.venv/bin/uvicorn app.main:app --host 127.0.0.1 --port 8000 --workers 4 --proxy-headers
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/log/ceevora-budget
+
+[Install]
+WantedBy=multi-user.target

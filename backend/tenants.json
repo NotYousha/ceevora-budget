@@ -1,0 +1,4 @@
+{
+  "DEMO": {"dialect": "sqlite", "path": "data/demo.db", "path_env": "DEMO_DB_PATH"},
+  "_EXAMPLE_ORACLE": {"dialect": "oracle", "user_env": "ACME_DB_USER", "password_env": "ACME_DB_PASSWORD", "dsn_env": "ACME_DB_DSN", "pool_min": 2, "pool_max": 10}
+}
