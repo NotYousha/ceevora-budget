@@ -32,11 +32,19 @@ def enable_semantics(page):
     time.sleep(1)
 
 
+def type_in(page, name, text):
+    """fill() on Flutter text fields sometimes drops the value; click, wait for focus, then type like a user."""
+    page.get_by_role("textbox", name=name).click()
+    time.sleep(0.5)
+    page.keyboard.press("Control+a")
+    page.keyboard.type(text, delay=40)
+
+
 def login(page, user):
     page.goto(BASE)
     enable_semantics(page)
-    page.get_by_role("textbox", name="Username").fill(user)
-    page.get_by_role("textbox", name="Password").fill("Demo@2027")
+    type_in(page, "Username", user)
+    type_in(page, "Password", "Demo@2027")
     page.get_by_role("button", name="Sign in").click()
     page.get_by_text(user if user != "fmanager" else "Faisal", exact=False).first.wait_for(timeout=30000)
 
@@ -85,8 +93,8 @@ with sync_playwright() as p:
     time.sleep(2)
     login(page, "accountant")
     nav(page, "Budget Master")
-    page.get_by_role("textbox", name="Budget No. *").fill("BUD-2028-UI")
-    page.get_by_role("textbox", name="Budget Name *").fill("UI created plan 2028")
+    type_in(page, "Budget No. *", "BUD-2028-UI")
+    type_in(page, "Budget Name *", "UI created plan 2028")
     page.get_by_text("Financial Year *").first.click()
     time.sleep(1)
     page.get_by_role("menuitem", name="2028").click()

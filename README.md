@@ -18,6 +18,14 @@ The first visit takes 20 to 40 seconds: this static demo runs the real Python ba
 and Oracle as described below; the in-browser mode exists only so the demo can be shared without a server.
 Rebuild it with `python deployment/build_pages.py` and publish `frontend/build/web` to the `gh-pages` branch.
 
+## Windows download (no installation)
+
+Download `CeevoraBudget.exe` from the [latest release](https://github.com/NotYousha/ceevora-budget/releases/latest)
+and double-click it. A console window starts the demo server and your browser opens the app; keep the window open
+while you use it. Data is saved in `%LOCALAPPDATA%\CeevoraBudget`; `CeevoraBudget.exe --reset` restores the demo data.
+The file is not code-signed, so Windows SmartScreen asks first: choose **More info**, then **Run anyway**.
+Rebuild it with `python deployment/windows_exe/build_exe.py <python-with-pyinstaller>`.
+
 ## Quick start on your own machine (Windows, about 5 minutes)
 
 Prerequisite: Python 3.12 on PATH. The ZIP package includes the compiled web build (`frontend/build/web`);

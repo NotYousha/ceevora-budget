@@ -6,3 +6,4 @@ backend/data/
 frontend/build/
 frontend/.dart_tool/
 dist/
+deployment/windows_exe/build/

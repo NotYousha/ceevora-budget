@@ -37,6 +37,12 @@ This module must **not** be labelled production-ready until every item below is 
 * OpenAPI documents request bodies precisely; response bodies are documented as generic JSON.
 * The demo user table stores PBKDF2 hashes; production should use the existing Ceevora identity source.
 
+## Windows demo executable (CeevoraBudget.exe)
+* A PyInstaller one-file bundle of the backend, the web build and the seeded SQLite demo; the UI runs in the
+  default browser, not as a native Flutter desktop window (that still needs Visual Studio, see above).
+* Not code-signed: SmartScreen and some antivirus products warn on first run. Sign it before giving it to customers.
+* Tested on the build laptop only (Windows 11): 12 of 12 browser checks passed against it.
+
 ## Public demo (GitHub Pages)
 * The shared link runs the backend in the visitor's browser (Pyodide + SQLite). It is a demo transport only:
   no Oracle, no shared data between visitors, data kept in that browser's IndexedDB. The demo users are re-hashed

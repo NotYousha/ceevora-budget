@@ -11,6 +11,7 @@ Only tests that were actually run are marked passed. Nothing on Oracle was execu
 | Flutter formatting | `dart format` | clean |
 | Flutter unit + widget | `flutter test` | **8 passed, 0 failed** |
 | Browser end-to-end (Playwright, Chromium, release web build + live backend) | `python tests_e2e/browser_smoke.py` | **12/12 checks passed**, no uncaught page errors |
+| Same browser test against `CeevoraBudget.exe` (Windows one-file demo, clean data folder) | run the exe, then `python tests_e2e/browser_smoke.py` | **12/12 checks passed** (25 Nov 2026) |
 | Oracle SQL syntax (sqlglot, Oracle dialect) | all files in `database/oracle` + common views | **1,555 statements parsed, 0 failures**; 33 trigger/grant/comment/role statements not parseable by the tool (not checked) |
 | Web release build | `flutter build web --release` | **Built** (`frontend/build/web`) |
 | Windows release build | `flutter build windows --release` | **Not built**: "Unable to find suitable Visual Studio toolchain" |
